@@ -1,0 +1,14 @@
+$bv-icon-theme: igx-icon-theme(
+  $color: igx-color($default-palette, grays, 700),
+  $size: 18px,
+);
+$bv-icon-theme--primary: igx-icon-theme(
+  $color: igx-color($default-palette, primary),
+  $size: 18px,
+);
+$bv-icon-theme--sml: igx-icon-theme(
+  $size: 15px,
+);
+$bv-icon-theme--xs: igx-icon-theme(
+  $size: 12px,
+);

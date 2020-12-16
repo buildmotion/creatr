@@ -1,0 +1,63 @@
+// Breakpoint Variables
+$bv-media--3: 360px;
+$bv-media--4: 480px;
+$bv-media--7: 768px;
+$bv-media--9: 992px;
+$bv-media--12: 1200px;
+
+// Media Query Mixin(s)
+@mixin bv-media--xs {
+  @media (min-width: #{$bv-media--3}) {
+    @content;
+  }
+}
+@mixin bv-media--sml {
+  @media (min-width: #{$bv-media--4}) {
+    @content;
+  }
+}
+@mixin bv-media--med {
+  @media (min-width: #{$bv-media--7}) {
+    @content;
+  }
+}
+@mixin bv-media--lrg {
+  @media (min-width: #{$bv-media--9}) {
+    @content;
+  }
+}
+@mixin bv-media--xl {
+  @media (min-width: #{$bv-media--12}) {
+    @content;
+  }
+}
+
+// Margin & Padding
+$bv-margin--default: 40px;
+$bv-margin--slim: 20px;
+
+@mixin bv-content-padding {
+  padding: $bv-margin--slim;
+  @include bv-media--med {
+    padding: $bv-margin--default;
+  }
+}
+
+// Widths
+$bv-container-width: 1200px;
+$bv-container-width--slim: 900px;
+
+// Container
+@mixin bv-container {
+  @include bv-content-padding;
+  // width: 100%;
+  max-width: $bv-container-width;
+  margin: 0 auto;
+}
+// Container
+@mixin bv-container--slim {
+  @include bv-content-padding;
+  width: 100%;
+  max-width: $bv-container-width--slim;
+  margin: 0 auto;
+}

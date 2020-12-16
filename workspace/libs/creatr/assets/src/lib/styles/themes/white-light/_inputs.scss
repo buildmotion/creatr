@@ -1,0 +1,30 @@
+// Search Input
+$bv-search-input-theme: igx-input-group-theme(
+  $search-background: rgb(255, 255, 255),
+  $schema: get-schema('dark'),
+  $palette: get-palette($default-palette, 'dark'),
+);
+
+$bv-search-input-prefix-theme: igx-icon-theme(
+  $color: igx-color($default-palette, grays, 700),
+);
+$bv-search-input-prefix-theme--white: igx-icon-theme(
+  $color: white,
+  $size: 18px,
+);
+
+// Email Signup Input
+$bv-email-alert-signup-form-input-theme: igx-input-group-theme(
+  $idle-bottom-line-color: igx-color($default-palette, grays),
+  $border-background: white,
+  $schema: get-schema('dark'),
+  $palette: get-palette($default-palette, 'dark'),
+);
+
+// Contact Form Input
+$bv-contact-form-input-theme: igx-input-group-theme(
+  $idle-bottom-line-color: igx-color($default-palette, grays),
+  $border-background: white,
+  $schema: get-schema('dark'),
+  $palette: get-palette($default-palette, 'dark'),
+);

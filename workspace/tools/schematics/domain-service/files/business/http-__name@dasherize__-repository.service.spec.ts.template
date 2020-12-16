@@ -1,0 +1,29 @@
+import { TestBed } from '@angular/core/testing';
+
+import { Http<%= classify(name) %>RepositoryService } from './http-<%= dasherize(name) %>-repository.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ConfigurationService } from '@valencia/configuration';
+import { LoggingService } from '@valencia/logging';
+
+describe('Http<%= classify(name) %>RepositoryService', () => {
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      providers: [
+        {
+          provide: ConfigurationService,
+          useClass: ConfigurationServiceMock,
+        },
+        {
+          provide: LoggingService,
+          useClass: MockLoggingService,
+        },
+      ],
+    })
+  );
+
+  it('should be created', () => {
+    const service: Http<%= classify(name) %>RepositoryService = TestBed.get(Http<%= classify(name) %>RepositoryService);
+    expect(service).toBeTruthy();
+  });
+});

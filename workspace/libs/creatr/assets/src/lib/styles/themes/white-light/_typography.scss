@@ -1,0 +1,165 @@
+$h1-style: igx-type-style(
+  $font-weight: 500,
+);
+$h2-style: igx-type-style(
+  $font-weight: 400,
+);
+$h3-style: igx-type-style(
+  $font-weight: 400,
+);
+$h4-style: igx-type-style(
+  $font-weight: 400,
+);
+$h5-style: igx-type-style(
+  $font-weight: 400,
+);
+$h6-style: igx-type-style(
+  $font-weight: 400,
+);
+$subtitle1-style: igx-type-style(
+  $font-weight: 400,
+);
+$subtitle2-style: igx-type-style(
+  $font-weight: 400,
+);
+$body1-style: igx-type-style(
+  $font-weight: 400,
+);
+$body2-style: igx-type-style(
+  $font-weight: 400,
+);
+$button-style: igx-type-style(
+  $font-weight: 400,
+);
+$caption-style: igx-type-style(
+  $font-weight: 400,
+);
+$overline-style: igx-type-style(
+  $font-weight: 400,
+);
+
+$custom-type-scale: igx-type-scale(
+  $h1: $h1-style,
+  $h2: $h2-style,
+  $h3: $h3-style,
+  $h4: $h4-style,
+  $h5: $h5-style,
+  $h6: $h6-style,
+  $subtitle-1: $subtitle1-style,
+  $subtitle-2: $subtitle2-style,
+  $body-1: $body1-style,
+  $body-2: $body2-style,
+  $button: $button-style,
+  $caption: $caption-style,
+  $overline: $overline-style,
+);
+
+$base-font-size: 1em;
+
+@include igx-typography($font-family: "'Montserrat', 'Arial', 'sans-serif'", $type-scale: $custom-type-scale);
+
+// Global Resets
+.igx-typography {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+}
+html {
+  font-size: 100%;
+}
+body {
+  color: igx-color($default-palette, grays, 900);
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: $base-font-size;
+  font-weight: 500;
+  line-height: 1.6;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', 'Arial', 'sans-serif';
+  font-weight: 500;
+}
+
+// Typography Styles
+
+$bv-type--xl: 4.75em;
+$bv-type--lrg: 3em;
+$bv-type--med: 2em;
+$bv-type--title: 1.75em;
+
+$bv-weight--regular: 400;
+$bv-weight--bold: 700;
+
+@mixin bv-type--brochure-h1($color: igx-color($default-palette, primary)) {
+  margin-top: 0;
+  color: $color;
+  font-family: 'Montserrat', 'Arial', 'sans-serif';
+  font-size: $bv-type--xl;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+@mixin bv-type--brochure-h2($color: igx-color($default-palette, primary)) {
+  margin-top: 0;
+  color: $color;
+  font-family: 'Montserrat', 'Arial', 'sans-serif';
+  font-size: $bv-type--lrg;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+@mixin bv-type--brochure-h3($color: igx-color($default-palette, primary)) {
+  color: $color;
+  font-family: 'Montserrat', 'Arial', 'sans-serif';
+  font-size: $bv-type--med;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+@mixin bv-type--brochure-h4($color: igx-color($default-palette, primary)) {
+  color: $color;
+  font-family: 'Montserrat', 'Arial', 'sans-serif';
+  font-size: $bv-type--title;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+@mixin bv-type--p($color: igx-color($default-palette, grays, 900)) {
+  color: $color;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+}
+@mixin bv-type--h2($color: igx-color($default-palette, grays, 900)) {
+  margin-top: 0;
+  color: $color;
+  font-family: 'Montserrat', 'Arial', 'sans-serif';
+  font-size: $bv-type--lrg;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+@mixin bv-type--h3($color: igx-color($default-palette, grays, 900)) {
+  color: $color;
+  font-family: 'Montserrat', 'Arial', 'sans-serif';
+  font-size: 1.25em;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+@mixin bv-type--h4($color: igx-color($default-palette, grays, 900), $font-size: 1em) {
+  color: $color;
+  font-family: 'Montserrat', 'Arial', 'sans-serif';
+  font-size: $font-size;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.15px;
+}
+@mixin bv-type--link($color: $bv-color--copy-link) {
+  color: $color;
+  text-decoration: underline;
+  transition: all 0.3s;
+  &:hover {
+    color: $bv-color--primary;
+  }
+}

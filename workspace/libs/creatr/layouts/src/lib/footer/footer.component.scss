@@ -1,0 +1,53 @@
+@import './../../../../../../libs/creatr/assets/src/lib/styles/themes/white-light/index';
+
+.bv-footer {
+  padding: $bv-margin--default;
+  background-color: $bv-color--primary;
+  overflow-x: hidden !important;
+}
+
+.bv-footer__container {
+  text-align: center;
+  @include bv-media--med {
+    padding: 20px 0;
+  }
+  &span a {
+    color: $bv-color--link;
+    text-decoration: underline;
+    transition: color 0.3s;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.bv-footer__title {
+  margin-top: 0;
+  color: white;
+  font-weight: $bv-weight--bold;
+}
+
+.bv-footer__copyright {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: white;
+  font-size: 14px;
+}
+
+a {
+  color: $bv-color--link;
+  text-decoration: underline;
+  transition: color 0.3s;
+  &:hover {
+    color: white;
+  }
+}
+
+.bv-footer__logo {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 40px;
+}

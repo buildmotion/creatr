@@ -1,0 +1,14 @@
+$bv-drop-down-theme: igx-drop-down-theme(
+  $background-color: white,
+  $item-text-color: igx-color($default-palette, grays, 900),
+  $selected-item-background: igx-color($default-palette, grays, 200),
+  $selected-item-text-color: igx-color($default-palette, grays, 900),
+  $selected-hover-item-background: igx-color($default-palette, grays, 200),
+  $selected-hover-item-text-color: igx-color($default-palette, grays, 900),
+  $selected-focus-item-background: igx-color($default-palette, grays, 200),
+  $selected-focus-item-text-color: igx-color($default-palette, grays, 900),
+  $focused-item-background: igx-color($default-palette, primary),
+  $focused-item-text-color: white,
+  $hover-item-background: igx-color($default-palette, primary),
+  $hover-item-text-color: white,
+);

@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- fixedInViewport="false" -->
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [ngClass]="{ hidden: !(isHandset$ | async) ? true : false }"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar *ngIf="appName$ | async as appName">{{appName}}</mat-toolbar>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <!-- NAVIGATION LINKS (SIDE-NAVIGATION) -->
+      <a mat-list-item [routerLink]="['/']" routerLinkActive="router-link-active">home</a>
+      <a mat-list-item [routerLink]="['/about']" routerLinkActive="router-link-active">about</a>
+      <a mat-list-item [routerLink]="['/security/login']" routerLinkActive="router-link-active">login</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="!(isHandset$ | async) ? false : true">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span *ngIf="appName$ | async as appName">{{appName}}</span>
+      <span class="spacer"> </span>
+      <!-- NAVIGATION LINKS (TOP NAVIGATION) -->
+      <span [ngClass]="{ hidden: !(isHandset$ | async) ? false : true }">
+        <a mat-list-item [routerLink]="['/']" routerLinkActive="router-link-active">home</a>
+        <a mat-list-item [routerLink]="['/about']" routerLinkActive="router-link-active">about</a>
+        <a mat-list-item [routerLink]="['/security/login']" routerLinkActive="router-link-active">login</a>
+      </span>
+    </mat-toolbar>
+    <!-- PROJECT CONTENT HERE; -->
+    <!-- <ng-content></ng-content> -->
+    <header class="header">
+      <section class="header__title" *ngIf="appName$ | async as appName">{{appName}}<span>app</span></section>
+    </header>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<buildmotion-footer></buildmotion-footer>

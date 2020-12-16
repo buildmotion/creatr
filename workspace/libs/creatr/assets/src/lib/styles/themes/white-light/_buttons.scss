@@ -1,0 +1,57 @@
+button,
+a[role='button'] {
+  text-transform: none !important;
+  @include bv-media--med {
+    font-size: 90%;
+  }
+}
+
+$bv-outline-btn: igx-button-theme(
+  $outlined-outline-color: igx-color($default-palette, secondary),
+  $outlined-text-color: darken(igx-color($default-palette, secondary), 20%),
+  $outlined-hover-text-color: igx-color($default-palette, primary),
+  $outlined-focus-text-color: igx-color($default-palette, primary),
+);
+$bv-outline-dropdown: igx-button-theme(
+  $outlined-outline-color: igx-color($default-palette, grays, 400),
+  $outlined-text-color: igx-color($default-palette, grays, 700),
+  $outlined-hover-text-color: igx-color($default-palette, primary),
+  $outlined-hover-background: rgba(255, 255, 255, 0),
+  $outlined-focus-text-color: igx-color($default-palette, primary),
+  $outlined-focus-background: rgba(255, 255, 255, 0),
+);
+$bv-outline-btn__disabled: igx-button-theme(
+  $outlined-outline-color: igx-color($default-palette, grays, 200),
+  $outlined-text-color: igx-color($default-palette, grays, 400),
+  $outlined-hover-text-color: igx-color($default-palette, grays, 400),
+  $outlined-focus-text-color: igx-color($default-palette, grays, 400),
+  $outlined-hover-background: rgba(255, 255, 255, 0),
+  $outlined-focus-background: rgba(255, 255, 255, 0),
+);
+$bv-flat-btn__primary: igx-button-theme(
+  $flat-background: igx-color($default-palette, primary),
+  $flat-text-color: rgb(255, 255, 255),
+  $flat-hover-background: lighten(igx-color($default-palette, primary), 10%),
+  $flat-hover-text-color: rgb(255, 255, 255),
+  $flat-focus-background: darken(igx-color($default-palette, primary), 10%),
+  $flat-focus-text-color: white,
+  $disabled-color: white,
+);
+$bv-flat-btn__secondary: igx-button-theme(
+  $flat-background: igx-color($default-palette, secondary),
+  $flat-text-color: rgb(255, 255, 255),
+  $flat-hover-background: darken(igx-color($default-palette, secondary), 5%),
+  $flat-hover-text-color: rgb(255, 255, 255),
+  $flat-focus-background: igx-color($default-palette, grays, 500),
+  $flat-focus-text-color: white,
+  $disabled-color: igx-color($default-palette, grays, 700),
+);
+$bv-raised-btn__white: igx-button-theme(
+  $raised-background: white,
+  $raised-text-color: igx-color($default-palette, grays, 800),
+  $elevations: igx-elevations(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+);
+$bv-icon-btn: igx-button-theme(
+  $icon-background: rgba(0, 0, 0, 0.2),
+  $icon-color: igx-color($default-palette, grays, 800),
+);

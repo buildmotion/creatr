@@ -1,0 +1,120 @@
+<main id="security--create-account">
+  <ng-container *ngIf="isAccountCreated$ | async; else createAccountFormTemplate">
+    <h1>Account Created</h1>
+    <p>Please check your email to verify your account.</p>
+  </ng-container>
+  <ng-template #createAccountFormTemplate>
+    <!-- SHOW CREATE ACCOUNT FORM -->
+    <form [formGroup]="createAccountForm" (ngSubmit)="onSubmit()" novalidate class="bv-content">
+      <h1>Create Account</h1>
+      <!-- EMAIL ADDRESS -->
+      <div class="bv-security__input-container">
+        <igx-input-group type="border" class="bv-security__input">
+          <label igxLabel for="email">Email Address</label>
+          <input formControlName="emailAddress" igxInput type="email" minlength="5" maxlength="100" />
+          <igx-suffix>
+            <igx-icon>email</igx-icon>
+          </igx-suffix>
+        </igx-input-group>
+        <ng-container
+          *ngIf="!createAccountForm.valid && createAccountForm.get('emailAddress').touched && createAccountForm.get('emailAddress').hasError('required')"
+        >
+          <small>The email address is required.</small>
+        </ng-container>
+        <ng-container *ngIf="!createAccountForm.valid && createAccountForm.get('emailAddress').hasError('minlength')">
+          <small>The email address minimum length is is 5.</small>
+        </ng-container>
+        <ng-container
+          *ngIf="
+            !createAccountForm.valid &&
+            createAccountForm.get('emailAddress').touched &&
+            createAccountForm.get('emailAddress').hasError('EmailAddressNoMailServers')
+          "
+        >
+          <small>No mail servers found at domain for this email address.</small>
+        </ng-container>
+        <ng-container *ngIf="hasErrors$ | async as createAccount">
+          <!-- <ng-container *ngIf="createAccount.errors.has('EmailAddressInvalid') && createAccount.errors.get('EmailAddressInvalid').valueOf(true)">
+            <small>The email address is not valid.</small>
+          </ng-container> -->
+        </ng-container>
+      </div>
+      <!-- PASSWORD -->
+      <div class="bv-security__input-container">
+        <igx-input-group type="border" class="bv-security__input">
+          <label igxLabel for="password">Password</label>
+          <input formControlName="password" igxInput type="password" (focus)="checkStrengthOnFocus($event)" (blur)="checkStrengthOnBlur()" />
+          <igx-suffix>
+            <igx-icon>lock</igx-icon>
+          </igx-suffix>
+        </igx-input-group>
+        <ng-container *ngIf="!createAccountForm.valid && createAccountForm.get('password').touched && createAccountForm.get('password').hasError('required')">
+          <small>The password is required.</small>
+        </ng-container>
+        <ng-container *ngIf="!createAccountForm.valid && createAccountForm.get('password').touched && createAccountForm.get('password').hasError('minLength')">
+          <small>The password minimum length is is 8.</small>
+        </ng-container>
+        <ng-container *ngIf="hasErrors$ | async as createAccount">
+          <!-- <ng-container *ngIf="createAccount.errors.has('PasswordInvalid') && createAccount.errors.get('PasswordInvalid').valueOf(true)">
+            <small>The password is not valid.</small>
+          </ng-container> -->
+        </ng-container>
+      </div>
+      <!-- PASSWORD STRENGTH -->
+      <buildmotion-password-strength
+        [hasUppercase]="hasUppercase"
+        [hasLowercase]="hasLowercase"
+        [hasEightChars]="hasEightChars"
+        [hasSpecialChar]="hasSpecialChars"
+        [hasNumber]="hasNumber"
+        [isWeak]="isWeak"
+        [isMedium]="isMedium"
+        [isStrong]="isStrong"
+        [withoutEightChars]="withoutEightChars"
+        [withoutLowercase]="withoutLowercase"
+        [withoutNumber]="withoutNumber"
+        [withoutSpecialChar]="withoutSpecialChar"
+        [withoutUppercase]="withoutUppercase"
+      ></buildmotion-password-strength>
+      <!-- CONFIRM PASSWORD -->
+      <div class="bv-security__input-container">
+        <igx-input-group type="border" class="bv-security__input">
+          <label igxLabel for="password">Confirm Password</label>
+          <input formControlName="passwordConfirm" igxInput type="password" />
+          <igx-suffix>
+            <igx-icon>lock</igx-icon>
+          </igx-suffix>
+        </igx-input-group>
+        <ng-container
+          *ngIf="!createAccountForm.valid && createAccountForm.get('passwordConfirm').touched && createAccountForm.get('passwordConfirm').hasError('required')"
+        >
+          <small>The confirm password is required.</small>
+        </ng-container>
+        <ng-container
+          *ngIf="!createAccountForm.valid && createAccountForm.get('password').touched && createAccountForm.get('passwordConfirm').hasError('passwordMismatch')"
+        >
+          <small>The password and confirm password values do not match.</small>
+        </ng-container>
+      </div>
+      <!-- SUBMIT BUTTON -->
+      <ng-container *ngIf="isProcessingAccount$ | async as isProcessingAlert; else createAccountTemplate">
+        <div class="bv-security__submit">
+          <button disabled="true" igxButton="flat"><!-- ADD SPINNER HERE -->Create Account</button> -->
+        </div>
+      </ng-container>
+      <ng-template #createAccountTemplate>
+        <div class="bv-security__submit">
+          <button igxButton="flat">Create Account</button>
+        </div>
+      </ng-template>
+      <!-- CREATE ACCOUNT API ERRORS -->
+      <!-- <ng-container *ngIf="hasErrors$ | async as createAccount">
+        <ng-container *ngIf="createAccount.errors.has('AccountAlreadyExists') && createAccount.errors.get('AccountAlreadyExists').valueOf(true)">
+          <small>The account already exists.</small>
+        </ng-container>
+      </ng-container> -->
+      <!-- FORGOT PASSWORD -->
+      <p><a (click)="login()">Log In</a> | <a (click)="forgotPassword()">Forgot Password?</a></p>
+    </form>
+  </ng-template>
+</main>

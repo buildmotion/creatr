@@ -1,0 +1,18 @@
+import { Injectable, Inject } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { ServiceBase } from '@valencia/foundation';
+import { LoggingService } from '@valencia/logging';
+import { ApiResponse } from '@valencia/common';
+import { BusinessProviderService } from './business/business-provider.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class <%= classify(name) %>Service extends ServiceBase {
+
+   constructor(@Inject(BusinessProviderService) private businessProvider: BusinessProviderService, loggingService: LoggingService) {
+    super('<%= classify(name) %>Service', loggingService);
+    this.businessProvider.serviceContext = this.serviceContext;
+  }
+}

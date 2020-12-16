@@ -1,0 +1,27 @@
+@import '~igniteui-angular/lib/core/styles/themes/utilities';
+
+@import './palette';
+
+@import '~igniteui-angular/lib/core/styles/themes/index';
+
+@import './layout';
+
+@import './typography';
+
+@import './buttons';
+
+@import './icons';
+
+@import './inputs';
+
+@import './drop-down';
+
+.igx-typography {
+  font-family: 'Montserrat', sans-serif;
+}
+
+:host ::ng-deep {
+  .igx-typography {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
