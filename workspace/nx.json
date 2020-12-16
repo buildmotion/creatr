@@ -1,5 +1,5 @@
 {
-  "npmScope": "workspace",
+  "npmScope": "buildmotion",
   "affected": {
     "defaultBase": "master"
   },
@@ -9,7 +9,7 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
-    "tsconfig.base.json": "*",
+    "tsconfig.json": "*",
     "tslint.json": "*",
     "nx.json": "*"
   },
@@ -21,5 +21,81 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "creatr": {
+      "tags": []
+    },
+    "creatr-e2e": {
+      "tags": [],
+      "implicitDependencies": ["creatr"]
+    },
+    "rules-engine": {
+      "tags": []
+    },
+    "actions": {
+      "tags": []
+    },
+    "error-handling": {
+      "tags": []
+    },
+    "configuration": {
+      "tags": []
+    },
+    "logging": {
+      "tags": []
+    },
+    "common": {
+      "tags": []
+    },
+    "components": {
+      "tags": []
+    },
+    "foundation": {
+      "tags": []
+    },
+    "http-service": {
+      "tags": []
+    },
+    "notification": {
+      "tags": []
+    },
+    "security": {
+      "tags": []
+    },
+    "validation": {
+      "tags": []
+    },
+    "creatr-assets": {
+      "tags": []
+    },
+    "creatr-legal": {
+      "tags": []
+    },
+    "vendr": {
+      "tags": []
+    },
+    "vendr-e2e": {
+      "tags": [],
+      "implicitDependencies": ["vendr"]
+    },
+    "admin": {
+      "tags": []
+    },
+    "admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin"]
+    },
+    "creatr-layouts": {
+      "tags": []
+    },
+    "creatr-video": {
+      "tags": []
+    },
+    "state-machine": {
+      "tags": []
+    },
+    "questionnaire": {
+      "tags": []
+    }
+  }
 }

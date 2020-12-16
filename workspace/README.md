@@ -1,10 +1,140 @@
 # Workspace
 
-This project was generated using [Nx](https://nx.dev).
+This project was generated using [Nx](https://nx.dev). Update your development environment to use Angular 10.
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+> [https://angular.io/guide/updating-to-version-10](https://angular.io/guide/updating-to-version-10)
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+## Create Application
+
+Use the Angular CLI to create a new application project.
+
+```ts
+ng new application creatr --dry-run
+```
+
+Output
+
+```ts
+ng g application creatr
+? Which stylesheet format would you like to use? SASS(.scss)  [ http://sass-lang.com   ]
+? Would you like to configure routing for this application? Yes
+DELETE tsconfig.json
+CREATE jest.config.js (61 bytes)
+CREATE jest.preset.js (82 bytes)
+CREATE apps/creatr/tsconfig.editor.json (119 bytes)
+CREATE apps/creatr/tsconfig.json (249 bytes)
+CREATE apps/creatr/src/favicon.ico (15086 bytes)
+CREATE apps/creatr/.browserslistrc (853 bytes)
+CREATE apps/creatr/tsconfig.app.json (163 bytes)
+CREATE apps/creatr/src/main.ts (377 bytes)
+CREATE apps/creatr/src/polyfills.ts (2833 bytes)
+CREATE apps/creatr/src/styles.scss (80 bytes)
+CREATE apps/creatr/src/assets/.gitkeep (0 bytes)
+CREATE apps/creatr/src/environments/environment.prod.ts (52 bytes)
+CREATE apps/creatr/src/environments/environment.ts (663 bytes)
+CREATE apps/creatr/src/app/app.module.ts (419 bytes)
+CREATE apps/creatr/src/app/app.component.html (3017 bytes)
+CREATE apps/creatr/src/app/app.component.spec.ts (1022 bytes)
+CREATE apps/creatr/src/app/app.component.ts (220 bytes)
+CREATE apps/creatr/src/app/app.component.scss (2088 bytes)
+CREATE tslint.json (2311 bytes)
+CREATE apps/creatr/jest.config.js (741 bytes)
+CREATE apps/creatr/tsconfig.spec.json (233 bytes)
+CREATE apps/creatr/src/test-setup.ts (30 bytes)
+CREATE apps/creatr-e2e/tslint.json (97 bytes)
+CREATE apps/creatr-e2e/cypress.json (412 bytes)
+CREATE apps/creatr-e2e/tsconfig.e2e.json (222 bytes)
+CREATE apps/creatr-e2e/tsconfig.json (147 bytes)
+CREATE apps/creatr-e2e/src/fixtures/example.json (80 bytes)
+CREATE apps/creatr-e2e/src/integration/app.spec.ts (404 bytes)
+CREATE apps/creatr-e2e/src/plugins/index.js (832 bytes)
+CREATE apps/creatr-e2e/src/support/app.po.ts (47 bytes)
+CREATE apps/creatr-e2e/src/support/commands.ts (1009 bytes)
+CREATE apps/creatr-e2e/src/support/index.ts (599 bytes)
+UPDATE angular.json (4096 bytes)
+UPDATE package.json (2038 bytes)
+UPDATE nx.json (641 bytes)
+√ Packages installed successfully.
+```
+
+### Add Material Design to the Application
+
+Use the CLI to add Material to the application. The schematic will add and update the necessary application files to enable Material Design.
+
+```ts
+ng add @angular/material
+Installing packages for tooling via yarn.
+Installed packages for tooling via yarn.
+? Choose a prebuilt theme name, or "custom" for a custom theme: Custom
+? Set up global Angular Material typography styles? Yes 
+? Set up browser animations for Angular Material? Yes
+UPDATE package.json (2104 bytes)
+√ Packages installed successfully.
+UPDATE apps/creatr/src/app/app.module.ts (528 bytes)
+UPDATE apps/creatr/src/styles.scss (1555 bytes)
+UPDATE apps/creatr/src/index.html (557 bytes)
+```
+
+> Use this tool to create a custom theme for Angular Material
+> [https://materialtheme.arcsine.dev/](https://materialtheme.arcsine.dev/)
+
+```ts
+ng generate @schematics/angular:module --name=site --no-interactive --dry-run
+ng generate @schematics/angular:component --name=modules/site/header --project=creatr --module=modules/site/site.module <
+
+CREATE apps/creatr/src/app/modules/site/header/header.component.html (21 bytes)
+CREATE apps/creatr/src/app/modules/site/header/header.component.spec.ts (626 bytes)
+CREATE apps/creatr/src/app/modules/site/header/header.component.ts (284 bytes)
+CREATE apps/creatr/src/app/modules/site/header/header.component.scss (0 bytes)
+UPDATE apps/creatr/src/app/modules/site/site.module.ts (266 bytes)
+
+ng generate @schematics/angular:component --name=modules/site/footer --project=creatr --module=modules/site/site.module
+
+CREATE apps/creatr/src/app/modules/site/footer/footer.component.html (21 bytes)
+CREATE apps/creatr/src/app/modules/site/footer/footer.component.spec.ts (626 bytes)
+CREATE apps/creatr/src/app/modules/site/footer/footer.component.ts (284 bytes)
+CREATE apps/creatr/src/app/modules/site/footer/footer.component.scss (0 bytes)
+UPDATE apps/creatr/src/app/modules/site/site.module.ts (344 bytes)
+
+ng generate @schematics/angular:component --name=modules/site/layout --project=creatr --module=modules/site/site.module
+CREATE apps/creatr/src/app/modules/site/layout/layout.component.html (21 bytes)
+CREATE apps/creatr/src/app/modules/site/layout/layout.component.spec.ts (626 bytes)
+CREATE apps/creatr/src/app/modules/site/layout/layout.component.ts (284 bytes)
+CREATE apps/creatr/src/app/modules/site/layout/layout.component.scss (0 bytes)
+UPDATE apps/creatr/src/app/modules/site/site.module.ts (692 bytes)
+```
+
+Create pages:
+
+```ts
+ng generate @schematics/angular:module --name=about --project=creatr --module=app.module --no-commonModule --lintFix --route=about --routing
+
+CREATE apps/creatr/src/app/about/about-routing.module.ts (340 bytes)
+CREATE apps/creatr/src/app/about/about.module.ts (438 bytes)
+CREATE apps/creatr/src/app/about/about.component.html (20 bytes)
+CREATE apps/creatr/src/app/about/about.component.spec.ts (619 bytes)
+CREATE apps/creatr/src/app/about/about.component.ts (280 bytes)
+CREATE apps/creatr/src/app/about/about.component.scss (0 bytes)
+UPDATE apps/creatr/src/app/app.module.ts (695 bytes)
+
+ng generate @schematics/angular:module --name=home --project=creatr --module=app.module --no-commonModule --lintFix --route=home --routing
+CREATE apps/creatr/src/app/home/home-routing.module.ts (336 bytes)
+CREATE apps/creatr/src/app/home/home.module.ts (430 bytes)
+CREATE apps/creatr/src/app/home/home.component.html (19 bytes)
+CREATE apps/creatr/src/app/home/home.component.spec.ts (612 bytes)
+CREATE apps/creatr/src/app/home/home.component.ts (276 bytes)
+CREATE apps/creatr/src/app/home/home.component.scss (0 bytes)
+UPDATE apps/creatr/src/app/app.module.ts (1176 bytes)
+```
+
+Create Routes Module
+
+```ts
+ng generate @schematics/angular:module --name=appRoutes --project=creatr --module=app --flat --lintFix --routingScope=Root <
+
+CREATE apps/creatr/src/app/app-routes.module.ts (195 bytes)
+UPDATE apps/creatr/src/app/app.module.ts (1293 bytes)
+```
 
 ## Quick Start & Documentation
 

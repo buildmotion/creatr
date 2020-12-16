@@ -15,7 +15,26 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@valencia/rules-engine": ["libs/rules-engine/src/index.ts"],
+      "@valencia/actions": ["libs/actions/src/index.ts"],
+      "@valencia/error-handling": ["libs/error-handling/src/index.ts"],
+      "@valencia/configuration": ["libs/configuration/src/index.ts"],
+      "@valencia/logging": ["libs/logging/src/index.ts"],
+      "@valencia/common": ["libs/common/src/index.ts"],
+      "@valencia/components": ["libs/components/src/index.ts"],
+      "@valencia/foundation": ["libs/foundation/src/index.ts"],
+      "@valencia/http-service": ["libs/http-service/src/index.ts"],
+      "@valencia/notification": ["libs/notification/src/index.ts"],
+      "@valencia/security": ["libs/security/src/index.ts"],
+      "@valencia/validation": ["libs/validation/src/index.ts"],
+      "@valencia/creatr/assets": ["libs/creatr/assets/src/index.ts"],
+      "@valencia/creatr/legal": ["libs/creatr/legal/src/index.ts"],
+      "@valencia/creatr/layout": ["libs/creatr/layouts/src/index.ts"],
+      "@valencia/creatr/video": ["libs/creatr/video/src/index.ts"],
+      "@valencia/state-machine": ["libs/state-machine/src/index.ts"],
+      "@valencia/questionnaires": ["libs/questionnaire/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
