@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
+
 import { FormControlName } from '@angular/forms';
 
 @Component({
@@ -8,12 +9,16 @@ import { FormControlName } from '@angular/forms';
 })
 export class FooterComponent implements OnInit {
   copyrightYear: string; // = new Date().getFullYear();
+  lastUpdatedOn: Date = new Date();
+
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
 
   constructor() {}
 
   ngOnInit(): void {
     this.setCopyrightDisplay();
+
+    this.lastUpdatedOn = new Date(2021, 0, 13); // months 0-index list;
   }
 
   private setCopyrightDisplay(): string {

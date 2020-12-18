@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
+import { LowercaseDatePipe } from './lowercase-date/lowercase-date.pipe';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -29,7 +30,7 @@ const MATERIAL_DESIGN_MODULES = [
 
 @NgModule({
   imports: [CommonModule, RouterModule, ...MATERIAL_DESIGN_MODULES],
-  declarations: [FooterComponent, MainLayoutComponent],
+  declarations: [FooterComponent, MainLayoutComponent, LowercaseDatePipe],
   exports: [FooterComponent, MainLayoutComponent],
 })
 export class LayoutsModule {}

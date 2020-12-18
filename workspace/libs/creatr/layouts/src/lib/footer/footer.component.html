@@ -1,7 +1,7 @@
 <footer class="bv-footer">
   <section class="bv-footer__container">
-    <h6 class="igx-typography__h5 bv-footer__title">Build something amazing today.</h6>
-    <span class="igx-typography__body-1 bv-footer__copyright">© {{ copyrightYear }} BlakeVaughn.com. All rights reserved.</span>
+    <h6 class="igx-typography__h5 bv-footer__title">Build something amazing today. {{lastUpdatedOn | lowercaseDate}}</h6>
+    <span class="igx-typography__body-1 bv-footer__copyright">© {{ copyrightYear }} BlakeVaughn.com. All rights reserved. Last updated on: {{lastUpdatedOn | date:'fullDate'}}</span>
     <span>
       <a [routerLink]="['/legal/terms-and-conditions']" routerLinkActive="router-link-active">Terms And conditions</a> |
       <a [routerLink]="['/legal/privacy']" routerLinkActive="router-link-active">Privacy Policy</a> |
