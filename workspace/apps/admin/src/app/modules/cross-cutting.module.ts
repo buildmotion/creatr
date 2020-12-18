@@ -10,15 +10,6 @@ import { HttpErrorInterceptor } from '@valencia/http-service';
 import { LogglyService } from 'ngx-loggly-logger';
 import { NotificationService } from '@valencia/notification';
 
-// tslint:disable-next-line:nx-enforce-module-boundaries
-// import { AppConfig } from '@config/app-config';
-
-
-
-
-
-
-
 /**
  * The factory function to initialize the configuration service for the application.
  * @param configService

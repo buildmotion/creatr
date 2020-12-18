@@ -1,11 +1,11 @@
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
+import { ApiMessage, ApiMessageType, ApiResponse } from '@valencia/common';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
-import { ApiResponse, ApiMessage, ApiMessageType } from '@valencia/common';
+import { catchError, retry } from 'rxjs/operators';
 
 export class HttpErrorInterceptor implements HttpInterceptor {
   displayToUser = true;
-  doNotDisplayToUser: false;
+  doNotDisplayToUser = false;
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
